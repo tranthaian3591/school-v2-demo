@@ -1,0 +1,109 @@
+{
+  "projectType": "application",
+  "root": "apps/app-csgd",
+  "sourceRoot": "apps/app-csgd/src",
+  "prefix": "app-school-v2",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/app-csgd",
+        "index": "apps/app-csgd/src/index.html",
+        "main": "apps/app-csgd/src/main.ts",
+        "polyfills": "apps/app-csgd/src/polyfills.ts",
+        "tsConfig": "apps/app-csgd/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/app-csgd/src/favicon.ico", "apps/app-csgd/src/assets"],
+        "styles": [
+          "libs/shared/styles/src/lib/styles/theme.less",
+          "libs/shared/styles/src/lib/styles/index.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/app-csgd/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/app-csgd/src/environments/environment.ts",
+              "with": "apps/app-csgd/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/app-csgd/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "app-csgd:build:production"
+        },
+        "development": {
+          "browserTarget": "app-csgd:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app-csgd:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/app-csgd/src/**/*.ts",
+          "apps/app-csgd/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app-csgd"],
+      "options": {
+        "jestConfig": "apps/app-csgd/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "serve-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve features-app-cn-danhmuc", "nx serve app-csgd"]
+      }
+    }
+  },
+  "tags": []
+}

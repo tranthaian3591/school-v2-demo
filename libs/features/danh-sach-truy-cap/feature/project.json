@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/danh-sach-truy-cap/feature",
+  "sourceRoot": "libs/features/danh-sach-truy-cap/feature/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/danh-sach-truy-cap/feature"],
+      "options": {
+        "jestConfig": "libs/features/danh-sach-truy-cap/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/danh-sach-truy-cap/feature/src/**/*.ts",
+          "libs/features/danh-sach-truy-cap/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

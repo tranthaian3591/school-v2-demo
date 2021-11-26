@@ -1,0 +1,40 @@
+.custom_____css {
+    color: grey;
+}
+
+.border-text-over {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    legend {
+        width: max-content;
+    }
+}
+.text-sm {
+    font-size: 11px;
+}
+
+.form-tt-don {
+    .ant-card-bordered {
+        border: 1px solid #a7a7a7;
+        border-radius: 0;
+    }
+    .ant-card-head-title {
+        padding: 0;
+        font-size: 13px;
+    }
+    .ant-card-head {
+        position: absolute;
+        top: -15px;
+        background: #fff;
+        min-height: auto;
+        border: 0;
+        left: 15px;
+    }
+}
+
+.ant-dropdown-menu-submenu-title {
+    white-space: normal;
+}

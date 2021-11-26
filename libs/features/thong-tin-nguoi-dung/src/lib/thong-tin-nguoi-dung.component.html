@@ -1,0 +1,21 @@
+<form novalidate [formGroup]="form" > 
+    <div class="form-group m-form__group"> 
+      <div class="col-md-12">
+          <asc-form-control [label]="'Tên người dùng'" formControlName="tenNguoiDung"></asc-form-control>
+      </div>
+    </div>  
+    <div class="form-group m-form__group"> 
+      <div class="col-md-12">
+          <asc-form-control [label]="'Số điện thoại' " formControlName="soDienThoai"></asc-form-control>
+      </div>
+    </div>  
+    <div class="form-group m-form__group"> 
+      <div class="col-md-12">
+          <asc-form-control [label]="'Địa chỉ' " formControlName="diaChi"></asc-form-control>
+      </div>
+    </div>  
+  <div class="drawer-footer"> 
+    <school-v2-asc-button btnClass="ui-button-delete mr-2" (click)="close()" [btnText]="'Đóng'">
+    </school-v2-asc-button>
+  </div>
+</form>

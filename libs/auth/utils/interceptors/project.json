@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/auth/utils/interceptors",
+  "sourceRoot": "libs/auth/utils/interceptors/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/utils/interceptors"],
+      "options": {
+        "jestConfig": "libs/auth/utils/interceptors/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/auth/utils/interceptors/src/**/*.ts",
+          "libs/auth/utils/interceptors/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/state/menu",
+  "sourceRoot": "libs/shared/state/menu/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/state/menu"],
+      "options": {
+        "jestConfig": "libs/shared/state/menu/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/state/menu/src/**/*.ts",
+          "libs/shared/state/menu/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

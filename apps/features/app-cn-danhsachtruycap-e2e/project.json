@@ -1,0 +1,30 @@
+{
+  "root": "apps/features/app-cn-danhsachtruycap-e2e",
+  "sourceRoot": "apps/features/app-cn-danhsachtruycap-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/features/app-cn-danhsachtruycap-e2e/cypress.json",
+        "devServerTarget": "features-app-cn-danhsachtruycap:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "features-app-cn-danhsachtruycap:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/features/app-cn-danhsachtruycap-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["features-app-cn-danhsachtruycap"]
+}

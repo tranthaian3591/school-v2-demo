@@ -1,0 +1,151 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@school-v2/auth/data-access": ["libs/auth/data-access/src/index.ts"],
+      "@school-v2/auth/services": ["libs/auth/services/src/index.ts"],
+      "@school-v2/auth/utils/directives": [
+        "libs/auth/utils/directives/src/index.ts"
+      ],
+      "@school-v2/auth/utils/guards": ["libs/auth/utils/guards/src/index.ts"],
+      "@school-v2/auth/utils/interceptors": [
+        "libs/auth/utils/interceptors/src/index.ts"
+      ],
+      "@school-v2/constant": ["libs/constant/src/index.ts"],
+      "@school-v2/features/danh-muc/data-access": [
+        "libs/features/danh-muc/data-access/src/index.ts"
+      ],
+      "@school-v2/features/danh-muc/feature": [
+        "libs/features/danh-muc/feature/src/index.ts"
+      ],
+      "@school-v2/features/danh-muc/services": [
+        "libs/features/danh-muc/services/src/index.ts"
+      ],
+      "@school-v2/features/danh-muc/ui": [
+        "libs/features/danh-muc/ui/src/index.ts"
+      ],
+      "@school-v2/features/danh-muc/utils": [
+        "libs/features/danh-muc/utils/src/index.ts"
+      ],
+      "@school-v2/features/danh-sach-truy-cap/data-access": [
+        "libs/features/danh-sach-truy-cap/data-access/src/index.ts"
+      ],
+      "@school-v2/features/danh-sach-truy-cap/feature": [
+        "libs/features/danh-sach-truy-cap/feature/src/index.ts"
+      ],
+      "@school-v2/features/danh-sach-truy-cap/services": [
+        "libs/features/danh-sach-truy-cap/services/src/index.ts"
+      ],
+      "@school-v2/features/danh-sach-truy-cap/ui": [
+        "libs/features/danh-sach-truy-cap/ui/src/index.ts"
+      ],
+      "@school-v2/features/danh-sach-truy-cap/utils": [
+        "libs/features/danh-sach-truy-cap/utils/src/index.ts"
+      ],
+      "@school-v2/features/login/data-access": [
+        "libs/features/login/data-access/src/index.ts"
+      ],
+      "@school-v2/features/login/feature": [
+        "libs/features/login/feature/src/index.ts"
+      ],
+      "@school-v2/features/login/services": [
+        "libs/features/login/services/src/index.ts"
+      ],
+      "@school-v2/features/login/ui": ["libs/features/login/ui/src/index.ts"],
+      "@school-v2/features/login/utils": [
+        "libs/features/login/utils/src/index.ts"
+      ],
+      "@school-v2/features/nhom-quyen/data-access": [
+        "libs/features/nhom-quyen/data-access/src/index.ts"
+      ],
+      "@school-v2/features/nhom-quyen/feature": [
+        "libs/features/nhom-quyen/feature/src/index.ts"
+      ],
+      "@school-v2/features/nhom-quyen/services": [
+        "libs/features/nhom-quyen/services/src/index.ts"
+      ],
+      "@school-v2/features/nhom-quyen/ui": [
+        "libs/features/nhom-quyen/ui/src/index.ts"
+      ],
+      "@school-v2/features/nhom-quyen/utils": [
+        "libs/features/nhom-quyen/utils/src/index.ts"
+      ],
+      "@school-v2/features/phan-quyen/data-access": [
+        "libs/features/phan-quyen/data-access/src/index.ts"
+      ],
+      "@school-v2/features/phan-quyen/feature": [
+        "libs/features/phan-quyen/feature/src/index.ts"
+      ],
+      "@school-v2/features/phan-quyen/services": [
+        "libs/features/phan-quyen/services/src/index.ts"
+      ],
+      "@school-v2/features/phan-quyen/ui": [
+        "libs/features/phan-quyen/ui/src/index.ts"
+      ],
+      "@school-v2/features/phan-quyen/utils": [
+        "libs/features/phan-quyen/utils/src/index.ts"
+      ],
+      "@school-v2/features/thong-tin-nguoi-dung": [
+        "libs/features/thong-tin-nguoi-dung/src/index.ts"
+      ],
+      "@school-v2/hrm-app/views/system/ui": [
+        "libs/features/phan-quyen/src/index.ts"
+      ],
+      "@school-v2/shared/base": ["libs/shared/base/src/index.ts"],
+      "@school-v2/shared/controls/asc-button": [
+        "libs/shared/controls/asc-button/src/index.ts"
+      ],
+      "@school-v2/shared/controls/asc-form-control": [
+        "libs/shared/controls/asc-form-control/src/index.ts"
+      ],
+      "@school-v2/shared/controls/asc-icon": [
+        "libs/shared/controls/asc-icon/src/index.ts"
+      ],
+      "@school-v2/shared/controls/asc-select/data-access": [
+        "libs/shared/controls/asc-select/data-access/src/index.ts"
+      ],
+      "@school-v2/shared/controls/asc-select/feature": [
+        "libs/shared/controls/asc-select/feature/src/index.ts"
+      ],
+      "@school-v2/shared/controls/field-error": [
+        "libs/shared/controls/field-error/src/index.ts"
+      ],
+      "@school-v2/shared/controls/view-file": [
+        "libs/shared/controls/view-file/src/index.ts"
+      ],
+      "@school-v2/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@school-v2/shared/directives/default-value": [
+        "libs/shared/directives/default-value/src/index.ts"
+      ],
+      "@school-v2/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ],
+      "@school-v2/shared/models": ["libs/shared/models/src/index.ts"],
+      "@school-v2/shared/pipes/safe-html": [
+        "libs/shared/pipes/safe-html/src/index.ts"
+      ],
+      "@school-v2/shared/pipes/tranfer-icon": [
+        "libs/shared/pipes/tranfer-icon/src/index.ts"
+      ],
+      "@school-v2/shared/services": ["libs/shared/services/src/index.ts"],
+      "@school-v2/shared/state/menu": ["libs/shared/state/menu/src/index.ts"],
+      "@school-v2/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@school-v2/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@school-v2/web-config": ["libs/web-config/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

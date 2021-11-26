@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/auth/utils/guards",
+  "sourceRoot": "libs/auth/utils/guards/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/utils/guards"],
+      "options": {
+        "jestConfig": "libs/auth/utils/guards/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/auth/utils/guards/src/**/*.ts",
+          "libs/auth/utils/guards/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

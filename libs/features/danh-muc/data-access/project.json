@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/danh-muc/data-access",
+  "sourceRoot": "libs/features/danh-muc/data-access/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/danh-muc/data-access"],
+      "options": {
+        "jestConfig": "libs/features/danh-muc/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/danh-muc/data-access/src/**/*.ts",
+          "libs/features/danh-muc/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

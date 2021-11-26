@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/pipes/tranfer-icon",
+  "sourceRoot": "libs/shared/pipes/tranfer-icon/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/pipes/tranfer-icon"],
+      "options": {
+        "jestConfig": "libs/shared/pipes/tranfer-icon/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/pipes/tranfer-icon/src/**/*.ts",
+          "libs/shared/pipes/tranfer-icon/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

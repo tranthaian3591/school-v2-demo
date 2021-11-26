@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/pipes/safe-html",
+  "sourceRoot": "libs/shared/pipes/safe-html/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/pipes/safe-html"],
+      "options": {
+        "jestConfig": "libs/shared/pipes/safe-html/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/pipes/safe-html/src/**/*.ts",
+          "libs/shared/pipes/safe-html/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

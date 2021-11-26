@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/login/services",
+  "sourceRoot": "libs/features/login/services/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/login/services"],
+      "options": {
+        "jestConfig": "libs/features/login/services/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/login/services/src/**/*.ts",
+          "libs/features/login/services/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

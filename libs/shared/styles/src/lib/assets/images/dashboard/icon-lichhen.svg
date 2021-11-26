@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+  <g id="icon-lichhen" transform="translate(-971 -255)">
+    <rect id="Rectangle_1158" data-name="Rectangle 1158" width="90" height="90" rx="27" transform="translate(971 255)" fill="#ffb501"/>
+    <g id="calendar" transform="translate(991 275)">
+      <path id="XMLID_236_" d="M0,240H51V210H0Zm39.5-27H44v3H39.5Zm0,6H44v3H39.5Zm-.439,8.839L41,229.779l3.889-3.889,2.121,2.121L41,234.021l-4.061-4.061ZM29,213h4.5v3H29Zm0,6h4.5v3H29Zm0,6h4.5v3H29Zm0,6h4.5v3H29ZM18.5,213H23v3H18.5Zm0,6H23v3H18.5Zm0,6H23v3H18.5Zm0,6H23v3H18.5ZM8,213h4.5v3H8Zm0,6h4.5v3H8Zm0,6h4.5v3H8Zm4.5,6v3H8v-3Z" transform="translate(0 -189)" fill="#fff"/>
+      <path id="XMLID_235_" d="M75,0h6V12H75Z" transform="translate(-67.5)" fill="#fff"/>
+      <path id="XMLID_234_" d="M46.5,60v9h-12V60h-18v9H4.5V60H0V72H51V60Z" transform="translate(0 -54)" fill="#fff"/>
+      <path id="XMLID_233_" d="M375,0h6V12h-6Z" transform="translate(-337.5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

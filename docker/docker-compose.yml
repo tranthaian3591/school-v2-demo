@@ -1,0 +1,83 @@
+version: "3.9"
+
+services:
+  app-phong:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/app-phong.Dockerfile
+    hostname: app-phong
+    ports:
+      - '4200:80'
+    restart: always
+
+  feature-login:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-login.Dockerfile
+    hostname: feature-login
+    ports:
+      - '4204:80'
+    restart: always
+
+  feature-dashboard:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-dashboard.Dockerfile
+    hostname: feature-dashboard
+    ports:
+      - '4205:80'
+    restart: always
+
+  feature-app-cn-danhmuc:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-cn-danhmuc.Dockerfile
+    hostname: feature-app-cn-danhmuc
+    ports:
+      - '4202:80'
+    restart: always
+
+  feature-app-cn-danhsachtruycap:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-cn-danhsachtruycap.Dockerfile
+    hostname: feature-app-cn-danhsachtruycap
+    ports:
+      - '4203:80'
+    restart: always
+
+  feature-app-cn-phan-quyen:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-cn-phan-quyen.Dockerfile
+    hostname: feature-app-cn-phan-quyen
+    ports:
+      - '4206:80'
+    restart: always
+
+  feature-app-cn-nhom-quyen:
+    networks:
+      - school-v2
+    build:
+      context: ../
+      dockerfile: ./docker/feature-cn-nhom-quyen.Dockerfile
+    hostname: feature-app-cn-nhom-quyen
+    ports:
+      - '4207:80'
+    restart: always
+
+networks:
+  school-v2:
+    driver: bridge

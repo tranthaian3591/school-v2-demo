@@ -1,0 +1,73 @@
+<div class="height-100">
+  <nz-layout>
+    <nz-sider class="aside-nav" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzWidth]="sidebarWidth">
+        <div class="logo">
+            <a routerLink="/management">
+                <img src="./assets/images/logo-ASC-50.svg" alt="">
+            </a>
+        </div>
+        <ul nz-menu nzMode="inline" class="scrollbar">
+            <ng-container *ngFor="let menu of menus$ | async; let i = index; trackBy: trackByFunction">
+            <li nz-submenu [nzTitle]="menu.title" [nzIcon]="menu.css" [nzOpen]="true">
+                <ul>
+                    <ng-container *ngFor="let item of menu.subMenu; let j = index; trackBy: trackByFunction">
+                    <li nz-menu-item [nzMatchRouter]="item.link">
+                        <a [routerLink]="[item.link]">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    </ng-container>
+                </ul>
+            </li>
+            </ng-container>
+        </ul>
+    </nz-sider>
+    <nz-layout class="main-layout">
+        <nz-header>
+            <div>
+                <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed">
+                </i>
+            </div>
+            <div class="project_name">{{ 'School V2 Demo' }}</div>
+            <div class="navbar">
+                <ul nz-menu nzMode="horizontal">
+                    <li nz-menu-item class="item-dropdown">
+                        <a nz-dropdown nzTrigger="hover" [nzDropdownMenu]="menu" nzPlacement="bottomRight" class="user-profile">
+                            <span class="user-logo">
+                                <img src="./assets/images/logo-ASC-50.svg">
+                                <span>{{ 'Demo User' }}</span>
+                            </span>
+                        </a>
+                        <nz-dropdown-menu #menu="nzDropdownMenu">
+                            <div class="dropdown-box py-2">
+                                <a (click)="openPopupUserInfo()" class="dropdown-item flex items-center">
+                                    Thông tin tài khoản
+                                    <i class="ti-user ml-auto"></i>
+                                </a> 
+                                <a class="dropdown-item flex items-center">
+                                    Đổi mật khẩu
+                                    <i class="ti-key ml-auto"></i>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" (click)="doLogout()" class="dropdown-item flex items-center">
+                                    Đăng xuất
+                                    <i class="ti-shift-right ml-auto"></i>
+                                </a>
+                            </div>
+                        </nz-dropdown-menu>
+                    </li>
+                </ul>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="wrapper-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer>2021 © Designed by ASCVN</nz-footer>
+    </nz-layout>
+</nz-layout>
+
+</div>
+
+<!-- <ng-template #signIn><router-outlet></router-outlet></ng-template> -->

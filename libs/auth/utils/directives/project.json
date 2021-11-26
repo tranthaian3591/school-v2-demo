@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/auth/utils/directives",
+  "sourceRoot": "libs/auth/utils/directives/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/utils/directives"],
+      "options": {
+        "jestConfig": "libs/auth/utils/directives/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/auth/utils/directives/src/**/*.ts",
+          "libs/auth/utils/directives/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,249 @@
+<div class="search-backdrop permissions"
+     (click)="onToggleSearchAdvanced()"></div>
+<div class="m-portlet m-portlet--mobile mb-0">
+    <div class="m-portlet__head d-flex align-items-center">
+        <div class="w-unset m-search-body">
+            <div class="search-body--wapper">
+                <input type="text"
+                       class="ui-input--search"
+                       [placeholder]="'LB.SEARCH_PLACEHOLDER' | translate"
+                       [(ngModel)]="modelSearch.keyword"
+                       (change)="onSearchChange()"
+                       (keydown.enter)="onSearchChange()" />
+                <span class="m-input-icon__icon m-input-icon__icon--right">
+                    <span class="line"></span>
+                    <button class="ui-button-search"
+                            (click)="onSearchChange()">
+                        {{ 'BTN.SEARCH' | translate }}
+                    </button>
+                    <span class="search-advance"
+                          (click)="onToggleSearchAdvanced()">
+                        <i class="fa fa-sliders"
+                           aria-hidden="true"></i>
+                    </span>
+                </span>
+                <div id="myDropdown"
+                     class="dropdown-content-search-advance"
+                     [ngClass]="this.isSearchAdvanced ? 'show-search-advance' : ''"
+                     *ngIf="isSearchFirsttime">
+                    <div class="custom-search-advance m-form">
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">{{ 'LB.HRM.MA_NHAN_SU' | translate }} </label>
+                            <div class="col-lg-4">
+                                <input type="text"
+                                       class="m-input form-control custom-input"
+                                       [placeholder]="'LB.HRM.MA_NHAN_SU' | translate"
+                                       [(ngModel)]="modelSearch.maNhanSu" />
+                            </div>
+                            <label class="col-lg-2 col-form-label"> {{ 'LB.HRM.HO_TEN' | translate }} </label>
+                            <div class="col-lg-4">
+                                <input type="text"
+                                       class="m-input form-control custom-input"
+                                       [placeholder]="'LB.HRM.HO_TEN' | translate"
+                                       [(ngModel)]="modelSearch.hoTen" />
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">{{ 'LB.HRM.NGAY_SINH' | translate }} </label>
+                            <div class="col-lg-4">
+                                <nz-date-picker [(ngModel)]="modelSearch.ngaySinh"
+                                                [nzFormat]="'dd/MM/yyyy'"
+                                                [nzPlaceHolder]="'LB.SELECT' | translate"
+                                                style="width: 100%">
+                                </nz-date-picker>
+                            </div>
+                            <!-- <label class="col-lg-2 col-form-label"> {{ 'LB.HRM.GIOI_TINH' | translate }} </label>
+                            <div class="col-lg-4">
+                                <asc-nx-asc-select [modeOfDropDowList]="dropdownListEnum.GIOI_TINH"
+                                            [placeHolder]="'LB.SELECT' | translate"
+                                            [(ngModel)]="modelSearch.idGioiTinh">
+                                </asc-nx-asc-select>
+                            </div> -->
+                        </div>   
+                        <!-- <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">
+                                {{ 'LB.HRM.NHOM_QUYEN' | translate }}
+                            </label>
+                            <div class="col-lg-10">
+                                <select-roles-tree isDisabledParentNode="true"
+                                                   [placeholder]="'LB.HRM.CHON_NHOM_QUYEN' | translate"
+                                                   [(ngModel)]="modelSearch.idsGroupPermission">
+                                </select-roles-tree>
+                            </div>
+                        </div> -->
+                        <div class="form-group m-form__group row text-right">
+                            <div class="col-12 text-right">
+                                <div class="btn-actions">
+                                    <school-v2-asc-button (click)="searchHandler()"
+                                                [btnClass]="'ui-button-secondary mr-2'"
+                                                [btnText]="'BTN.SEARCH' | translate">
+                                    </school-v2-asc-button>
+                                    <school-v2-asc-button (click)="refreshHandler()"
+                                                [btnClass]="'ui-button-reset'"
+                                                [btnText]="'BTN.RESET' | translate">
+                                    </school-v2-asc-button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-search-adv d-flex align-items-center">
+                    <div>
+                        <!-- <nz-select nzShowSearch
+                                   [nzPlaceHolder]="'LB.SELECT' | translate"
+                                   nzAllowClear
+                                   [(ngModel)]="modelSearch.isPhanQuyen">
+                            <nz-option [nzLabel]="'LB.HRM.DA_PHAN_QUYEN' | translate"
+                                       [nzValue]="true"></nz-option>
+                            <nz-option [nzLabel]="'LB.HRM.CHUA_PHAN_QUYEN' | translate"
+                                       [nzValue]="false"></nz-option>
+                        </nz-select> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-unset">
+            <ul class="m-portlet__nav">
+                <li class="m-portlet__nav-item">
+                    <school-v2-asc-button (click)="showFormSetRole()"
+                                [btnClass]="'ui-button-secondary'"
+                                [btnText]="'Thêm quyền'">
+                    </school-v2-asc-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-portlet__body">
+        <div class="grid-wrapper"
+             [ngStyle]="{ 'height.px': pageHeight }">
+            <kendo-grid [data]="listPhanQuyen"
+                        [loading]="isLoading"
+                        [pageSize]="gridState.take!"
+                        [skip]="gridState.skip!"
+                        [pageable]="pageConfig"
+                        [resizable]="true"
+                        [columnMenu]="true"
+                        [sortable]="true"
+                        [selectable]="true"
+                        kendoGridSelectBy="idUser"
+                        [selectedKeys]="selectionIds"
+                        [sort]="gridState.sort!"
+                        [style.height]="'100%'"
+                        (dataStateChange)="onStateChange($event)"> 
+                <kendo-grid-column [title]="'LB.STT' | translate"
+                                   [width]="50"
+                                   [columnMenu]="false"
+                                   headerClass="text-center">
+                    <ng-template kendoGridCellTemplate
+                                 let-dataItem
+                                 let-rowIndex="rowIndex">
+                        <div class="text-center">
+                            {{ rowIndex + 1 }}
+                        </div>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column [columnMenu]="false"
+                                   field="maNhanSu"
+                                   [title]="'LB.STAFF_CODE' | translate"
+                                   [width]="100">
+                </kendo-grid-column>
+                <kendo-grid-column [columnMenu]="false"
+                                   field="userName"
+                                   [title]="'LB.USERNAME' | translate"
+                                   [width]="100">
+                </kendo-grid-column>
+                <kendo-grid-column field="ten"
+                                   class="text-left"
+                                   [title]="'LB.FULLNAME' | translate"
+                                   [width]="150"
+                                   [columnMenu]="false">
+                    <ng-template kendoGridCellTemplate
+                                 let-dataItem>
+                        <div class="dark">
+                            <b>{{ dataItem.hoDem + ' ' + dataItem.ten }}</b>
+                        </div>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column [columnMenu]="false"
+                                   field="tenGioiTinh"
+                                   [title]="'LB.GENDER' | translate"
+                                   [width]="70"
+                                   class="text-center"
+                                   headerClass="text-center">
+                </kendo-grid-column>
+                <kendo-grid-column [columnMenu]="false"
+                                   field="ngaySinh"
+                                   [title]="'LB.BIRTHDAY' | translate"
+                                   [width]="100"
+                                   class="text-center"
+                                   headerClass="text-center">
+                    <ng-template kendoGridCellTemplate
+                                 let-dataItem>
+                        {{ dataItem?.ngaySinh | date: 'dd/MM/yyyy' }}
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column [columnMenu]="false"
+                                   field="tenCoQuan"
+                                   [title]="'LB.DEPARTMENT' | translate"
+                                   [width]="250"
+                                   [sortable]="false"> 
+                </kendo-grid-column>                   
+                <kendo-grid-column [columnMenu]="false"
+                                   field="groupPemission"
+                                   [title]="'' | translate"
+                                   [sortable]="false"
+                                   [width]="120">
+                    <ng-template kendoGridCellTemplate
+                                 let-dataItem>
+                        <div class="text-center">
+                            <div *ngIf="dataItem.groupPemissions; else block">
+                                <span class="label-custom label-success">{{ 'Đã phân quyền' }}</span>
+                            </div>
+                            <ng-template #block>
+                                <span class="label-custom label-warning">{{ 'Chưa phân quyền' }}</span>
+                            </ng-template>
+                        </div>
+                    </ng-template>
+                </kendo-grid-column>
+                <ng-template kendoGridDetailTemplate
+                             let-dataItem>
+                    <section class="grid-init">
+                        <kendo-grid [data]="dataItem.groupPemissions"
+                                    [height]="300">
+                            <kendo-grid-column [title]="'STT' | translate"
+                                               [width]="60">
+                                <ng-template kendoGridCellTemplate
+                                             let-dataItem
+                                             let-rowIndex="rowIndex">
+                                    {{ rowIndex + 1 }}
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column [columnMenu]="false"
+                                               field="label"
+                                               [title]="'Vai trò' | translate"
+                                               [sortable]="false"> 
+
+                            </kendo-grid-column>
+                            <kendo-grid-column [width]="60"
+                                               class="text-center text-danger">
+                                <ng-template kendoGridCellTemplate
+                                             let-item="dataItem">
+                                    <i nz-icon
+                                       nzType="close"
+                                       nzTheme="outline"
+                                       (click)="removePermissionItem(item.id, dataItem.idUser)"></i>
+                                </ng-template>
+                            </kendo-grid-column>
+                        </kendo-grid>
+                    </section>
+                </ng-template>
+            </kendo-grid>
+        </div>
+    </div>
+    <div class="k-overlay"
+         *ngIf="opened"></div>
+    <div class="wrapper form-layouts">
+        <div kendoWindowContainer></div>
+    </div>
+</div>

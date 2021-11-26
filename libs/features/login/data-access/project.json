@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/login/data-access",
+  "sourceRoot": "libs/features/login/data-access/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/login/data-access"],
+      "options": {
+        "jestConfig": "libs/features/login/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/login/data-access/src/**/*.ts",
+          "libs/features/login/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

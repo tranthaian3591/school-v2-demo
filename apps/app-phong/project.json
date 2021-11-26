@@ -1,0 +1,120 @@
+{
+  "projectType": "application",
+  "root": "apps/app-phong",
+  "sourceRoot": "apps/app-phong/src",
+  "prefix": "app-school-v2",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/app-phong",
+        "index": "apps/app-phong/src/index.html",
+        "main": "apps/app-phong/src/main.ts",
+        "polyfills": "apps/app-phong/src/polyfills.ts",
+        "tsConfig": "apps/app-phong/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/app-phong/src/favicon.ico",
+          "apps/app-phong/src/assets",
+          "apps/app-phong/src/_config",
+          "apps/app-phong/src/i18n",
+          {
+            "glob": "**/*",
+            "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+            "output": "/assets/"
+          }
+        ],
+        "styles": ["libs/shared/styles/src/lib/styles/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/app-phong/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/app-phong/src/environments/environment.ts",
+              "with": "apps/app-phong/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/app-phong/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "app-phong:build:production"
+        },
+        "development": {
+          "browserTarget": "app-phong:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4200
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app-phong:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/app-phong/src/**/*.ts",
+          "apps/app-phong/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app-phong"],
+      "options": {
+        "jestConfig": "apps/app-phong/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "serve-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx serve features-login",
+          "nx serve features-dashboard:serve-mfe",
+          "nx serve app-phong"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

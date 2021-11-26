@@ -1,0 +1,43 @@
+<div [ngClass]="{'form-group m-form__group': label}">
+    <label class="font-weight-bold" *ngIf="label"> {{ label }} </label>
+    <div class="input-group select-user">
+        <nz-select [nzServerSearch]="isSearchServer"
+                   nzShowSearch
+                   nzAllowClear
+                   [nzPlaceHolder]="placeholder"
+                   [(ngModel)]="value"
+                   [nzMode]="mode"
+                   [nzDropdownClassName]="'select-user-lazy'"
+                   [nzOptionHeightPx]="54"
+                   (nzScrollToBottom)="loadMore()"
+                   [nzDisabled]="disabled"
+                   [nzDropdownRender]="renderTemplate"
+                   (ngModelChange)="onChangeModel($event)"
+                   (nzOnSearch)="onSearch($event)"
+                   [attr.keyControl]="keyControl"
+                   [nzNotFoundContent]="notfoundTemplate">
+            <!-- <ng-container *ngFor="let item of nhanSuCoQuanChucVus">
+                <nz-option nzCustomContent
+                           [nzLabel]="item.hoDem + ' ' + item.ten"
+                           [nzValue]="item.nhanSuId">
+                    <b class="content-primary">{{ item.hoDem + ' ' + item.ten }}</b>
+                    <p class="mb-0">&#8627; {{ item.tenCoQuan }}</p>
+                </nz-option> 
+            </ng-container> -->
+        </nz-select>
+        <ng-template #renderTemplate>
+            <nz-spin *ngIf="isLoading"></nz-spin>
+        </ng-template>
+        <div class="input-group-append btn-user">
+            <button class="btn_custom btn_df"
+                    type="button"
+                    (click)="showModalListUser()"
+                    [disabled]="disabled">
+                <asc-icon icon="zoom-minus"></asc-icon>
+            </button>
+        </div>
+    </div>
+    <ng-template #notfoundTemplate>
+        <nz-empty [nzNotFoundContent]="'Không có dữ liệu'"></nz-empty>
+    </ng-template>
+</div>

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/danh-muc/feature",
+  "sourceRoot": "libs/features/danh-muc/feature/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/danh-muc/feature"],
+      "options": {
+        "jestConfig": "libs/features/danh-muc/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/danh-muc/feature/src/**/*.ts",
+          "libs/features/danh-muc/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

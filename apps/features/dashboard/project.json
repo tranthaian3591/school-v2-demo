@@ -1,0 +1,116 @@
+{
+  "projectType": "application",
+  "root": "apps/features/dashboard",
+  "sourceRoot": "apps/features/dashboard/src",
+  "prefix": "app-school-v2",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/features/dashboard",
+        "index": "apps/features/dashboard/src/index.html",
+        "main": "apps/features/dashboard/src/main.ts",
+        "polyfills": "apps/features/dashboard/src/polyfills.ts",
+        "tsConfig": "apps/features/dashboard/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/features/dashboard/src/favicon.ico",
+          "apps/features/dashboard/src/assets",
+          "apps/features/dashboard/src/_config"
+        ],
+        "styles": ["apps/features/dashboard/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/features/dashboard/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/features/dashboard/src/environments/environment.ts",
+              "with": "apps/features/dashboard/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/features/dashboard/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "features-dashboard:build:production"
+        },
+        "development": {
+          "browserTarget": "features-dashboard:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4205
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "features-dashboard:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/features/dashboard/src/**/*.ts",
+          "apps/features/dashboard/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/features/dashboard"],
+      "options": {
+        "jestConfig": "apps/features/dashboard/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "serve-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx serve features-app-cn-danhsachtruycap",
+          "nx serve features-app-cn-danhmuc",
+          "nx serve features-app-cn-phan-quyen",
+          "nx serve features-app-cn-nhom-quyen",
+          "nx serve features-dashboard"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

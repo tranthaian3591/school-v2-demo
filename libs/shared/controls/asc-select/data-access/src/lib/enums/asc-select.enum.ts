@@ -1,0 +1,9 @@
+export enum AscSelectEnum {
+    TRANGTHAITHONGBAO,
+    TRANGTHAIXEM,
+    TINHCHATTHONGBAO,
+    LOAITHONGBAO,
+    DONVI,
+    PHONGBAN,
+    TRUONG
+}

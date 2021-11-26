@@ -1,0 +1,104 @@
+{
+  "projectType": "application",
+  "root": "apps/features/app-cn-danhsachtruycap",
+  "sourceRoot": "apps/features/app-cn-danhsachtruycap/src",
+  "prefix": "app-school-v2",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/features/app-cn-danhsachtruycap",
+        "index": "apps/features/app-cn-danhsachtruycap/src/index.html",
+        "main": "apps/features/app-cn-danhsachtruycap/src/main.ts",
+        "polyfills": "apps/features/app-cn-danhsachtruycap/src/polyfills.ts",
+        "tsConfig": "apps/features/app-cn-danhsachtruycap/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/features/app-cn-danhsachtruycap/src/favicon.ico",
+          "apps/features/app-cn-danhsachtruycap/src/assets",
+          "apps/features/app-cn-danhsachtruycap/src/_config"
+        ],
+        "styles": ["apps/features/app-cn-danhsachtruycap/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/features/app-cn-danhsachtruycap/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/features/app-cn-danhsachtruycap/src/environments/environment.ts",
+              "with": "apps/features/app-cn-danhsachtruycap/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/features/app-cn-danhsachtruycap/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "features-app-cn-danhsachtruycap:build:production"
+        },
+        "development": {
+          "browserTarget": "features-app-cn-danhsachtruycap:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4203
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "features-app-cn-danhsachtruycap:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/features/app-cn-danhsachtruycap/src/**/*.ts",
+          "apps/features/app-cn-danhsachtruycap/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/features/app-cn-danhsachtruycap"],
+      "options": {
+        "jestConfig": "apps/features/app-cn-danhsachtruycap/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,14 @@
+<button [attr.type]="isSubmit ? 'submit':'button'"
+        class="ui-button"
+        [disabled]="isDisabled"
+        [ngClass]="btnClass">
+    <ng-content select="[asc-icon]"></ng-content>
+    <span class="ui-text">{{ btnText }}</span>
+    <ng-container *ngIf="btnIconSvg">
+        <!-- <span class="ui-icon"
+              [innerHTML]="btnIconSvg + '.svg' | vnuIcon | safeHtml: 'html'"></span> -->
+    </ng-container>
+    <ng-container *ngIf="btnClass">
+        <i [ngClass]="btnIconClass" class="mr-1"></i>
+    </ng-container>
+</button>

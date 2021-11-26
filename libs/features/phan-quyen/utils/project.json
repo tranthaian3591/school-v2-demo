@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/phan-quyen/utils",
+  "sourceRoot": "libs/features/phan-quyen/utils/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/phan-quyen/utils"],
+      "options": {
+        "jestConfig": "libs/features/phan-quyen/utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/phan-quyen/utils/src/**/*.ts",
+          "libs/features/phan-quyen/utils/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

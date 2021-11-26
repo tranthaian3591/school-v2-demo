@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/constant",
+  "sourceRoot": "libs/constant/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/constant"],
+      "options": {
+        "jestConfig": "libs/constant/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/constant/src/**/*.ts",
+          "libs/constant/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

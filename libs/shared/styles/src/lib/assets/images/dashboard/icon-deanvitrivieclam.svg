@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="89" height="89" viewBox="0 0 89 89">
+  <g id="icon-deanvitrivieclam" transform="translate(-1274 -875)">
+    <rect id="Rectangle_384" data-name="Rectangle 384" width="89" height="89" rx="26" transform="translate(1274 875)" fill="#29a764"/>
+    <g id="employee" transform="translate(1289 890)">
+      <path id="Path_4479" data-name="Path 4479" d="M16.5,25A12.5,12.5,0,1,1,29,12.5,12.514,12.514,0,0,1,16.5,25Z" transform="translate(6)" fill="#fff"/>
+      <path id="Path_4480" data-name="Path 4480" d="M11.875,12.023A11.886,11.886,0,0,0,0,23.9v8.75a1.889,1.889,0,0,0,1.875,1.875H25V26.4a9.39,9.39,0,0,1,8.025-9.25,9.615,9.615,0,0,1,3.45-4.65c-2.5-.715-2.635-.475-24.6-.475Z" transform="translate(0 17.977)" fill="#fff"/>
+      <path id="Path_4481" data-name="Path 4481" d="M36.879,19.75H33.755V17.875A4.38,4.38,0,0,0,29.379,13.5H23.13a4.38,4.38,0,0,0-4.375,4.375V19.75H15.63A4.349,4.349,0,0,0,12.5,21.083L26.255,28.26l13.757-7.178A4.349,4.349,0,0,0,36.879,19.75Zm-14.375,0V17.875a.625.625,0,0,1,.625-.625h6.25a.625.625,0,0,1,.625.625V19.75Z" transform="translate(18.746 20.25)" fill="#fff"/>
+      <path id="Path_4482" data-name="Path 4482" d="M27.868,25.34a1.877,1.877,0,0,1-1.733,0L12,17.965V28.677a4.38,4.38,0,0,0,4.375,4.375h21.25A4.38,4.38,0,0,0,42,28.677V17.965Z" transform="translate(18 26.948)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

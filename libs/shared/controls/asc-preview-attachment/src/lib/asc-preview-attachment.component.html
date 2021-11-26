@@ -1,0 +1,41 @@
+<ngx-loading-bar height="5px" color="#2C975F"></ngx-loading-bar>
+<ng-container *ngIf="imageUrls; else notfoundTpl">
+    <div class="page">
+        <div class="text-right"
+             *ngIf="isDownload">
+             <div class="btn-group-action">
+            <school-v2-asc-button (click)="download()"
+                        [btnClass]="'ui-button-primary btn--download'"
+                        [btnIconSvg]="'download'"
+                        [btnText]="'Tải xuống'">
+            </school-v2-asc-button>
+
+            <!-- <asc-button (click)="print()"
+                        [btnClass]="'ui-button-primary ml-2'"
+                        [btnIconSvg]="'print'"
+                        [btnText]="'In'">
+            </asc-button> -->
+            </div>
+        </div>
+        <div class="py-3" id="print-section" #PrintTemplate>
+            <ng-container *ngFor="let imageUrl of imageUrls">
+                <div class="border-page mb-3">
+                    <img [src]="'data:image/png;base64,' + imageUrl"
+                         alt="" />
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>
+<ng-template #notfoundTpl>
+    <nz-skeleton [nzActive]="true"></nz-skeleton>
+    <nz-skeleton [nzActive]="true"></nz-skeleton>
+    <nz-skeleton [nzActive]="true"></nz-skeleton>
+    <nz-skeleton [nzActive]="true"></nz-skeleton>
+</ng-template>
+<ngx-spinner bdColor="rgba(0,0,0,0.12)"
+             size="medium"
+             color="#fff"
+             type="ball-square-spin">
+    <p style="color: white">Loading...</p>
+</ngx-spinner>

@@ -1,0 +1,21 @@
+{
+    "env": {
+        "name": "dev"
+    },
+    "logging": {
+        "console": true,
+        "appInsights": false
+    },
+    "menu":{
+        "left": true,
+        "top": true
+    },
+    "logoUrl": "./assets/images/logo-vnu.svg",
+    "headerUrl": "./assets/images/title.svg",
+    "resourceUrl": "http://devmedia.vnu.epmt.com.vn:2051/",
+    "apiServer": "http://dev.apivnu-gateway.epmt.com.vn:2051",
+    "notificationUrl": "http://dev.apivnu-gateway.epmt.com.vn:2051/notification-gateway",
+    "version": "v1",
+    "sso": "https://uatidp.vnu.edu.vn",
+    "exportDefault": true
+}

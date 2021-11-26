@@ -1,0 +1,23 @@
+<ng-container *ngIf="isMedia; else incorrect">
+    <div style="height: 100%">
+        <div class="text-right mb-1"
+             *ngIf="isDownload">
+            <school-v2-asc-button (click)="downloadFile()"
+                        [btnClass]="'ui-button-primary'"
+                        [btnText]="'Tải file'"
+                        [btnIconSvg]="'download'">
+            </school-v2-asc-button>
+        </div>
+        <iframe (load)="loadContent()"
+                [src]="media | safeHtml: 'resourceUrl'"
+                class="embed-responsive-item full-height"
+                width="100%"
+                frameborder="0"
+                height="1000px"></iframe>
+    </div>
+</ng-container>
+
+<ng-template #incorrect>
+    <nz-result nzStatus="warning"
+               nzTitle="Tập tin không hợp lệ !"> </nz-result>
+</ng-template>

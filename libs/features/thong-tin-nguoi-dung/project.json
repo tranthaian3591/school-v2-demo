@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/features/thong-tin-nguoi-dung",
+  "sourceRoot": "libs/features/thong-tin-nguoi-dung/src",
+  "prefix": "school-v2",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/thong-tin-nguoi-dung"],
+      "options": {
+        "jestConfig": "libs/features/thong-tin-nguoi-dung/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/thong-tin-nguoi-dung/src/**/*.ts",
+          "libs/features/thong-tin-nguoi-dung/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

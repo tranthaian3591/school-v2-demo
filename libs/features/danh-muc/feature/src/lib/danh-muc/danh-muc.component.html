@@ -1,0 +1,162 @@
+<div class="wrapper-content--head">
+  {{ 'Danh mục' }}
+</div>
+
+<div class="wrapper-content--body">
+  <div class="actions mb-3">
+    <div></div>
+    <button nz-button nzType="primary" (click)="refresh()" nzDanger>
+      Reload
+    </button>
+    <button nz-button nzType="default" (click)="createModal()" nzDanger>
+      {{ 'BTN.ADD' | translate }}
+    </button>
+  </div>
+  <div class="grid-wrapper" [ngStyle]="{ 'height.px': pageHeight }">
+    <kendo-grid
+      [data]="dsTinhThanh$ | async"
+      [loading]="isLoading"
+      [pageSize]="gridState.take!"
+      [skip]="gridState.skip!"
+      [pageable]="pageConfig"
+      [resizable]="true"
+      [columnMenu]="{ filter: false }"
+      [sortable]="true"
+      [selectable]="true"
+      kendoGridSelectBy="ID"
+      [selectedKeys]="selectionIds"
+      [sort]="gridState.sort!"
+      [style.height]="'100%'"
+      (dataStateChange)="pageChange($event)"
+    >
+      <kendo-grid-checkbox-column
+        [showSelectAll]="true"
+        [width]="45"
+        [columnMenu]="false"
+        class="text-center"
+        headerClass="text-center"
+      ></kendo-grid-checkbox-column>
+
+      <kendo-grid-column
+        [title]="'LB.ACTION' | translate"
+        class="text-center"
+        [width]="80"
+        [columnMenu]="false"
+        headerClass="text-center"
+      >
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+          <nz-button-group>
+            <button
+              nz-button
+              nz-dropdown
+              class="btn-light"
+              [nzDropdownMenu]="menu"
+            >
+              <div
+                [innerHTML]="'commode1.svg' | schoolIcon | safeHtml: 'html'"
+              ></div>
+            </button>
+          </nz-button-group>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <div class="m-dropdown__wrapper menu-dropdown-table">
+              <span
+                class="
+                  m-dropdown__arrow
+                  m-dropdown__arrow--right
+                  m-dropdown__arrow--adjust
+                "
+              ></span>
+              <div class="m-dropdown__inner">
+                <div class="m-dropdown__body">
+                  <div class="m-dropdown__content">
+                    <ul class="m-nav">
+                      <li class="m-nav__section m-nav__section--first">
+                        <span class="m-nav__section-text">
+                          {{ 'LB.ACTION' | translate }}
+                        </span>
+                      </li>
+                      <ng-container>
+                        <li class="m-nav__item">
+                          <a
+                            [routerLink]="[
+                              '/management/phong-thi-nghiem/',
+                              'xem-chi-tiet-thong-tin-thiet-bi'
+                            ]"
+                            [queryParams]="{ pr: dataItem.guid }"
+                            class="m-nav__link"
+                          >
+                            <i class="m-nav__link-icon flaticon-list-1"></i>
+                            <span class="m-nav__link-text">
+                              {{ 'PTN.TKH.XEM' | translate }}</span
+                            >
+                          </a>
+                        </li>
+                      </ng-container>
+
+                      <ng-container>
+                        <li class="m-nav__item">
+                          <a
+                            (click)="edit(dataItem)"
+                            class="m-nav__link"
+                          >
+                            <i class="m-nav__link-icon flaticon-edit"></i>
+                            <span class="m-nav__link-text">
+                              {{ 'BTN.EDIT' | translate }}</span
+                            >
+                          </a>
+                        </li>
+                      </ng-container>
+                      <ng-container>
+                        <li class="m-nav__item">
+                          <a
+                            (click)="removeHandler(dataItem.ID)"
+                            class="m-nav__link"
+                          >
+                            <i class="m-nav__link-icon flaticon-delete-1"></i>
+                            <span class="m-nav__link-text">
+                              {{ 'BTN.DELETE' | translate }}</span
+                            >
+                          </a>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nz-dropdown-menu>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column
+        title="STT"
+        [width]="60"
+        [columnMenu]="false"
+        headerClass="text-center"
+      >
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+          <div class="text-center">
+            {{ rowIndex + 1 }}
+          </div>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column field="ID" title="ID"> </kendo-grid-column>
+      <kendo-grid-column field="MaTinhThanh" title="MaTinhThanh">
+      </kendo-grid-column>
+      <kendo-grid-column field="TenTinhThanh" title="TenTinhThanh">
+      </kendo-grid-column>
+      <kendo-grid-column field="NgayTao" title="NgayTao">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+          <div class="text-center">
+            {{ dataItem?.NgayTao | date: 'dd/MM/yyyy' }}
+          </div>
+        </ng-template>
+      </kendo-grid-column> 
+    </kendo-grid>
+  </div>
+</div>
+<div class="k-overlay" *ngIf="opened"></div>
+<div class="wrapper form-layouts">
+  <div kendoWindowContainer></div>
+</div>

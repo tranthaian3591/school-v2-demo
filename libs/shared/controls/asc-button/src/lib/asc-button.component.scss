@@ -1,0 +1,12 @@
+.float-right {
+    float: right;
+}
+
+:host(.disabled) {
+    // Disable click event.
+    pointer-events: none;
+}
+
+:host(.enabled) {
+    // No customizations.
+}

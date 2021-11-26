@@ -1,0 +1,28 @@
+{
+  "root": "apps/app-phong-e2e",
+  "sourceRoot": "apps/app-phong-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/app-phong-e2e/cypress.json",
+        "devServerTarget": "app-phong:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "app-phong:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/app-phong-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["app-phong"]
+}

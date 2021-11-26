@@ -1,0 +1,103 @@
+{
+  "projectType": "application",
+  "root": "apps/features/app-cn-nhom-quyen",
+  "sourceRoot": "apps/features/app-cn-nhom-quyen/src",
+  "prefix": "school-v2",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/features/app-cn-nhom-quyen",
+        "index": "apps/features/app-cn-nhom-quyen/src/index.html",
+        "main": "apps/features/app-cn-nhom-quyen/src/main.ts",
+        "polyfills": "apps/features/app-cn-nhom-quyen/src/polyfills.ts",
+        "tsConfig": "apps/features/app-cn-nhom-quyen/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/features/app-cn-nhom-quyen/src/favicon.ico",
+          "apps/features/app-cn-nhom-quyen/src/assets"
+        ],
+        "styles": ["apps/features/app-cn-nhom-quyen/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/features/app-cn-nhom-quyen/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/features/app-cn-nhom-quyen/src/environments/environment.ts",
+              "with": "apps/features/app-cn-nhom-quyen/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/features/app-cn-nhom-quyen/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "features-app-cn-nhom-quyen:build:production"
+        },
+        "development": {
+          "browserTarget": "features-app-cn-nhom-quyen:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4207
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "features-app-cn-nhom-quyen:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/features/app-cn-nhom-quyen/src/**/*.ts",
+          "apps/features/app-cn-nhom-quyen/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/features/app-cn-nhom-quyen"],
+      "options": {
+        "jestConfig": "apps/features/app-cn-nhom-quyen/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

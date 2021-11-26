@@ -1,0 +1,33 @@
+<form class="m-form" novalidate [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <div class="form-group m-form__group"> 
+        <div class="col-md-12">
+            <asc-form-control [label]="'Mã tỉnh thành'" formControlName="maTinhThanh"></asc-form-control>
+        </div>
+    </div>
+
+    <div class="form-group m-form__group"> 
+        <div class="col-md-12">
+            <asc-form-control [label]="'Tên tình thành'" formControlName="tenTinhThanh"></asc-form-control>
+        </div>
+    </div>
+    <!-- <div>
+        <label>
+            {{ 'Tỉnh thành'  }}
+        </label>
+
+    <div class="form-group m-form__group">
+    <hrm-select [modeOfDropDowList]="dropdownListEnum.TRANG_THAI_DON_DCNB" class="m-input form-control"
+    [placeHolder]="'LB.CHOOSEN_STATUS'" >
+    </hrm-select>
+    </div>
+    </div> -->
+
+    <div class="text-right border-form-footer">
+        <school-v2-asc-button btnClass="ui-button-delete mr-2" (click)="closeForm()" [btnText]="'Đóng'">
+        </school-v2-asc-button>
+        <school-v2-asc-button [isSubmit]="true" btnClass="ui-button-primary mr-2" [btnText]="'Lưu'">
+        </school-v2-asc-button>
+
+        <!-- <button type="submit" class="btn_custom btn_add">{{ 'SAVE'  }}</button> -->
+    </div>
+</form>
